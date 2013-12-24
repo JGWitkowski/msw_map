@@ -58,8 +58,11 @@ WSGI_APPLICATION = 'msw_map.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mswmapdb',
+        'USER': 'django',
+        'PASSWORD': 'django12in2mo.',
+        'HOST': '',
     }
 }
 
