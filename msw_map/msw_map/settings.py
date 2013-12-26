@@ -66,6 +66,7 @@ DATABASES = {
         'USER': 'django',
         'PASSWORD': 'django12in2mo.',
         'HOST': '',
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 

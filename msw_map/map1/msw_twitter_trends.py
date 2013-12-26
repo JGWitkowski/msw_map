@@ -36,6 +36,8 @@ class MyTrends:
 		raw_trends = api.GetTrendsWoeid(self.locationId)
 		for raw in raw_trends:
 			self.trends.append(raw.name)
+	def searchTrend(self, trend):
+		self.trends.append(trend)
 	def getTrends(self):
 		return self.trends
 	def printTrends(self):
@@ -62,8 +64,32 @@ class MyTrends:
 		words = self.getWords(trend)
 		wpt = 1.0* sum([ len(w.split()) for w in words])/len(words)
 		return wpt
+'''
+class User:
+	def __init__(self):
+		pass
+	self.coors = tuple()
+	self.name = ''
+	self.message = ''
 
-#Testing
+
+mt = MyTrends()
+mt.authApi()
+res = mt.api.GetSearch('Christmas', count=100)
+#coor = False
+coors = []
+for r in res:
+	#print json.dumps(r.AsDict(), indent=2) + '\n'
+	#print('++++++++++++++++++++++++\n++++++++++++++++++++\n+++++++ COORDINATES ++++++++\n+++++++++++++++++\n+++++++++++')
+	#print(r.coordinates)
+	if(r.coordinates != None):
+		coors.append(r)
+		print r.text
+		print(r.coordinates)
+print len(coors)
+
+
+
 print("Twitter Trends Started")
 mt = MyTrends()
 print ("Authenticating...")
@@ -76,7 +102,6 @@ print("Getting Tweets From Those Trends...")
 mt.setTweets()
 print mt.lexicalDiversity(mt.getTrends()[0])
 print mt.wordsPerTweet(mt.getTrends()[0])
-'''
 #lexcial diversity
 lexd = 1.0*len(set(words))/len(words)
 print "Lexical Diversity: " + str(lexd)
