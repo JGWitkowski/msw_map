@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'msw_map.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    url(r'^map1/', include('map1.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
