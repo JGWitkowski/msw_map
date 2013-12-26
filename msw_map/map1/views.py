@@ -9,3 +9,12 @@ def index(request):
 	template = loader.get_template('map1/index.html')
 	context = RequestContext(request, {'trend_list': trend_list,})
 	return HttpResponse(template.render(context))
+
+def ajaxtest(request):
+	#trend_list = User.objects.all()
+	template = loader.get_template('map1/ajaxtest.html')
+	context = RequestContext(request, {'trend_list': trend_list,})
+	return HttpResponse(template.render(context))
+
+
+
