@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from map1.models import User
 import time
+import map1.msw_twitter_trends
 
 class Command(BaseCommand):
     args = '<poll_id poll_id ...>'
