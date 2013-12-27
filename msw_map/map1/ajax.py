@@ -4,5 +4,6 @@ from map1.models import User
 
 @dajaxice_register
 def sayhello(request):
-	User.objects.all()
-	return simplejson.dumps({'message': User.objects.all()[0].latitude})
+	newest = User.objects.latest('id')
+	tweets = {}
+	return simplejson.dumps({'name': newest.name, 'message': newest.message, 'latitude': newest.latitude, 'longtitude': newest.longtitude})

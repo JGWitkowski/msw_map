@@ -29,7 +29,7 @@ class Command(BaseCommand):
             time.sleep(3)
             mt = map1.msw_twitter_trends.MyTrends()
             mt.authApi()
-            res = mt.api.GetSearch('Christmas', count=100)
+            res = mt.api.GetSearch('PITT', count=500)
             #coor = False
             coors = []
             for r in res:
@@ -50,7 +50,7 @@ class Command(BaseCommand):
                     print (mes)
                     p = []
                     p = re.findall(r"[-+]?\d*\.\d+|\d+", str(r.coordinates))
-                    new_tweet = User(name=name, message=name, latitude= 55, longtitude= 55)
+                    new_tweet = User(name=name, message=mes, latitude= p[0], longtitude= p[1])
                     new_tweet.save()
                     print(new_tweet.id)
             print len(coors)
